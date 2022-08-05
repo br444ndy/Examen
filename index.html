@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />   
+       
+        <!-- Vamos a buscar el CSS de Bootstrap-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+          <!--La biblioteca de p5.js-->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js"
+            integrity="sha512-rCZdHNB0AePry6kAnKAVFMRfWPmUXSo+/vlGtrOUvhsxD0Punm/xWbEh+8vppPIOzKB9xnk42yCRZ5MD/jvvjQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <!--El script de p5.js-->
+        <script>
+            var canvas;
+            function setup() {
+                canvas = createCanvas(windowWidth, windowHeight);
+                canvas.position(0, 0);
+                canvas.style("z-index", "-1").style("position", "fixed");
+                noCursor();
+            }
+            function draw() {
+                background(250);
+                textSize(50);
+                textAlign(CENTER, CENTER);
+                text("🛍", mouseX, mouseY);
+            }
+            function windowResize() {
+                resizeCanvas(windowWidth, windowHeight);
+            }
+        </script>
+        <!--La biblioteca de Chart.js-->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+            integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@200&display=swap" rel="stylesheet">
+         <style>            
+            h1 {
+                font-family:'Playfair Display', serif;     
+                font-size: 4.5em           ;
+            } 
+            h2 {
+                font-family:'Playfair Display', serif;     
+                font-size: 2.5em           ;
+            } 
+
+            body {
+                font-family: 'Poppins', sans-serif;             
+                           
+            }
+         </style>
+
+    </head>                  
+                    
+        <title>Exámen</title>        
+ 
+    <body>
+            <header class="d-flex align-items-end">
+                <div class="container-fluid">
+                    <div class="row my-auto">
+                        <div class="col-md-8 col-lg-6 mx-auto pb-3 text-center">
+    
+                            <h1 class="text-center mt-5  ">E-commerce de reventa de ropa de segunda</h1>
+                            <br>
+                            <p class="lead text-center mx-auto w-75"> En Chile existe actualmente interés de parte de la población para revender lo que ya no usas o de vitrinear usando Internet, debido a las múltiples ventajas que esto presenta.
+                                Existen diversos espacios virtuales que se han configurado en torno a esta necesidad. En Europa; Milán, Italin, UK y USA destaca Depop. 
+                                Mientras que en los paises Nórdicos la delantera la tiene Tise. En nuestro país Chile han habido diversos sitios que han querido estar en el TOP de sitios para la reventa, sin embargo el que en su momento fue un exitoso sitio; FeriaFerió.Com
+                                 fue deshabilitado sin dar motivo claro a sus usuarias del porqué de la decisión,
+                                  mientras que el mismo destino (al parecer) esta haciendo sucumbir a PRILOV.COM, que para el primero de septiembre del presente año nos dejara a todas las usuarias otra vez sin razones y sin web, los cuales contaron con el apoyo de CORFO para su fundación.
+                            </p>
+                            <br>
+                            <p class="lead text-center mx-auto w-75"> Aqui yace la oportunidad de diseño que da origen a la caracterización de los 2 sitios webs que podrian servir como referentes de análisis si se plantease la idea de la construcción de una web similar: Depop y la web de Julie Cristobal (estilista francés) programada por dos habidos sujetos relacionados con el mundo
+                                la moda; a continuación se describen 3 protopersonas, las cuales estarían interesadas en navegar y experimentar este hipotético sitio web de compra y venta pensado para la generación Z. </p>
+                                                                            
+                    </div>
+                </div>
+            </div>
+        </header>
+      
+        <section class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-8 mx-auto my-5">
+                    <h2 class="display-5 my-5 text-center">Gráficos</h2>
+
+                    <!--impar-->
+                    <div class="row align-items-center my-3">
+                        <div class="col-md-12">
+                            <h3 class="my-3 text-center">DEPOP</h3>
+                            <p class="lead text-center mb-4 ">1. Depop era en sus inicios una aplicación excluiva para iOs más no un sitio web, aunque ahora lo tiene, claro está (así como tambien la App para Android).Funciona como una mezcla entre E-bay e Instagram. O sea, es básicamente un Marketplace social. Pese a su rotundo éxito
+                                la revisión a la web haciendo uso de LightHouse muestra los siguientes datos mostrados por la gráfica:
+                                (Para Desirability se le ha asignado un 80 ya que tiene una identidad visual (sigue siendo reconociblemente DEPOP y eso ya es bastante atractivo) pero es menos potente que la identidad visual presente en la App).
+                                     <p>
+                            <canvas id="grafico1" class="w-50 mx-auto my-5"></canvas>
+                            <p class="lead text-center mb-4 ">El 68 obtenido en performance revela que la velocidad con que se carga el contenido de la página principal es de 2.1s, al cargar la página de inicio el delay no es tan evidente pero al entrar al apartado SHOP y hacer scroll down (el cual pareciera "infinito" debido a la cantidad de artículos) si se vuelve evidente y molesto que las imágenes demoren en cargar, el valor de perfomance aquí disminuye a 50, esto significa que el tiempo de respuesta es de 3.3s.
+                                 Respecto a los nombres y etiquetas se indica que los botones no tienen un nombre accesible :(
+                                     <p>
+                        </div>
+                        
+                     
+
+                        <div class="row align-items-center my-4">
+                            <div class="col-md-12">
+                                <h3 class="my-3 text-center">Juliecristobal.com</h3>
+                                <p class="lead text-center mb-4 ">2.  El sitio presenta de una manera dinámica los trabajos de estilismo realizados por Julie para diferentes Revistas como por ejemplo,Vanity Fair. Sin embargo, el sitio fue diseñado por Martin Silvestre,director de Arte francés y fundador de Numbered Studio. Diseña para prestigiosos clientes como Chanel, LV, YSL, Hermes, Miista, Google, Ubisoft,entre otros.Fue votado "independiente del año" en 2018. Harold Urcun tambien participó en la creación de este sitio, es un freelancer, programador con interés en el movimiento y la música, se declara un artesano de la línea de tiempo e interactivo desde 1979.
+                                    El nálisis realizado  haciendo uso de LightHouse nos muestra que: (Para Desirability se le ha asignado un 95 la interactividad basada en movimientos y contrastes me invita a ver el contenido).
+                                         <p>
+                                <canvas id="grafico2" class="w-50 mx-auto my-5"></canvas>
+                                <p class="lead text-center mb-4 "> Excelentes valores en el análisis de LightHouse, salvo que el índice de velocidad es de 2.3s, podría mejorar si se sirven imágenes de calidad apropiada.
+                                         <p>
+                            </div>
+
+
+                    
+                         
+          
+
+
+        <section class="container">
+            <div class="row">
+                <div class="col-sm-10 col-md-12 mx-auto my-5">
+                    <h2 class="display-5 my-5 text-center">Protopersonas</h2>
+                          
+                    <!--impar-->
+                    <div class="row align-items-center my-3">
+                        <div class="col-md-6">
+                            <img class="rounded-circle img-fluid" src= "img/1.webp" class="w-100" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-start p-4">
+                                <h3>Tomás</h3>
+                                <h4>Extremo por falta</h4>
+                                <p class="fw-normal">
+                                    Joven de 21 años, residente de la comuna Santiago Centro, vive con otros dos amigos compartiendo gastos y está preparandose para entrar a la universidad pues tienes aspiraciones a estudiar algo relacionado con lo audiovisual.
+                                    Entusiasta del skate. Cada semana frecuenta ferias libres en busca de prendas que pueda vestir para sí a bajo costo y tambien para revenderlas en Barrio Lastarria, en parte por su interés en el streetwear 
+                                    pero principalmente porque necesita ingresos extras. Siempre se rodea de amigos, los cuales son muchas veces quienes le toman fotografías para subir a instagram, plataforma en la cual posee
+                                    más de 3000 seguidores, los cuales reconocen en él, a alguien con buenos outfits.                                           
+                                </p>
+                          </div>
+                        </div>
+                    </div>                                    
+                    <!--par-->
+                    <div class="row align-items-center my-3">
+                        <div class="col-md-6 order-sm-2">
+                            <img class="rounded-circle img-fluid" src="img/2.webp" class="w-100" />
+                        </div>
+                        <div class="col-md-6 order-sm-1">
+                            <div class="text-md-end">
+                                <h3>Paula</h3>
+                                <h4>Mainstream User</h4>
+
+                                <p class="fw-normal">
+                                   Tiene 24 años, reside en la comuna de Providencia con su mamá. Se encuentra cursando el tercer año de una carrera universitaria pues aspira a un título profesional.
+                                   Trabaja en un Starbucks 20horas semanales en la comuna de las Condes, parte de su salario lo invierte mensualmente en prendas que siente, la identifican como ella misma siempre buscando originales looks los que combina con maquillaje en los ojos a diario y con frecuencia
+                                   utiliza uñas gel. Asegura tener un estilo propio. Se declara amante de la moda. Siempre esta en busca de inspiración en el arte, la danza y el teatro o en tiktok.
+                                   Nunca sabe que hacer con la ropa o accesorios que ya no le quedan y que se encuentran en excelente estado; le gustaria venderlas pero no tiene tiempo para instalarse en una feria libre debido a sus estudios es por ello que utiliza el Marketplace de Facebook.                                         
+                                </p>                                
+                            </div>
+                        </div>
+                    </div>                  
+                    <!--impar-->
+                    <div class="row align-items-center my-3">
+                        <div class="col-md-6">
+                            <img class="rounded-circle img-fluid" src="img/3.webp" class="w-100" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-start">
+                                <h3>Courtney </h3>
+                                <h4>Extremo por exceso</h4>
+
+                                <p class="fw-normal">
+                            Con 28 años Courtney reside en la comuna de Vitacura, se desempeña como azafata Internacional para LATAM, ha viajado por numerosos paises de europa y de asia, su gran inspiración y placer culpable es la ropa de diseñador,
+                            En su tiempo libre suele leer las revistas de moda que compra en los diversos lugares que recorre en parte por trabajo pero tambien por placer, le gusta pensarse a si misma como una modelo, es por ello que siempre esta en busca de nuevas tendencias y nuevas prendas. 
+                            Suele comprar más de lo que se va a poner pues se declara compradora compulsiva, ella prefiere pagar más si eso implica un productos fabricado con los mejores materiales y en vanguardia de la tendencia, 
+                            renueva su closet constantemente y es por ello que apoya fuertemente la economía circular. Es usuaria de multiples sitios desde el ordenador y su celular para poder vender lo que ya no usa y 
+                            desocupar su clóset para almacenar las nuevas prendas que compra. 
+                                </p>
+                                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+             
+            
+        </section>
+
+                
+                  
+
+ 
+       
+        </script>
+      
+        <!--grafico 1-->
+        <script>
+            const con = {
+                type: "radar",
+                data: {
+                    labels: ["PERFORMANCE", "ACCESIBILITY", "BEST PRACTICES", "SEO", "DESIRABILITY"],
+                    datasets: [
+                        {
+                            data: [68, 78, 83, 83, 80],
+                            fill: true,
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderColor: "rgb(255, 99, 132)",
+                        },
+                    ],
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    },
+                    scale: {
+                        min: 0,
+                        max: 100,
+                    },
+                },
+            };
+            const misBarritas = new Chart(document.getElementById("grafico1"), con);
+            document.querySelectorAll("a").forEach((a) => a.classList.add("link-dark"));
+
+           
+        </script>
+        
+          <!--grafico 2-->
+          <script>
+             const config = {
+                type: "radar",
+                data: {
+                    labels: ["PERFORMANCE", "ACCESIBILITY", "BEST PRACTICES", "SEO", "DESIRABILITY"],
+                    datasets: [
+                        {
+                            data: [92, 96, 92, 100, 95],
+                            fill: true,
+                            backgroundColor: "rgba(255, 99, 132, 0.2)",
+                            borderColor: "rgb(255, 99, 132)",
+                        },
+                    ],
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false,
+                        },
+                    },
+                    scale: {
+                        min: 0,
+                        max: 100,
+                    },
+                },
+            };
+            const myChart = new Chart(document.getElementById("grafico2"), config);
+            document.querySelectorAll("a").forEach((a) => a.classList.add("link-dark"));
+               </script>
+
+
+<footer>
+    <div class="container">
+        <div class="row py-3">
+            <div class="col-12">
+                <p class="d-flex justify-content-between small p-1 m-0">
+                    <a href="https://github.com/profesorfaco/front-end" class="link-secondary">Introducción al Desarrollo Front End con HTML, CSS y JavaScript</a>
+                    
+                    <a href="https://github.com/br444ndy" class="d-none d-lg-inline link-secondary">Javiera Mercado © 2022</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+    </body>
+</html>
